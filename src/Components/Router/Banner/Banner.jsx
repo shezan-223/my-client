@@ -1,8 +1,22 @@
-import React from 'react';
+
+
+import { use } from 'react';
+import DisplayBanner from './DisplayBanner/DisplayBanner';
+import { useLoaderData } from 'react-router';
 
 const Banner = () => {
+ const banner =useLoaderData()  
+  
+  // const{  propertyName, category, image, location, price,shortDescription } =banner
+
+
+
+
     return (
-        <div>
+<div className='container mx-auto'>
+  <h2>total data {banner.length}</h2>
+ 
+ 
             <div className="carousel w-full">
   <div id="item1" className="carousel-item w-full">
     <img
@@ -30,6 +44,11 @@ const Banner = () => {
   <a href="#item2" className="btn btn-xs">2</a>
   <a href="#item3" className="btn btn-xs">3</a>
   <a href="#item4" className="btn btn-xs">4</a>
+</div>
+<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-12'>
+   {
+    banner.map(item => <DisplayBanner key={item.id} banner={item} > </DisplayBanner>)
+  }
 </div>
 
         </div>
