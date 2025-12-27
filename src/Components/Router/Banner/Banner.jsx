@@ -6,6 +6,8 @@ import { useLoaderData } from 'react-router';
 
 const Banner = () => {
  const banner =useLoaderData()  
+ console.log(banner);
+ 
   
   // const{  propertyName, category, image, location, price,shortDescription } =banner
 
@@ -47,7 +49,7 @@ const Banner = () => {
 </div>
 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-12'>
    {
-    banner.map(item => <DisplayBanner key={item.id} banner={item} > </DisplayBanner>)
+    banner.map(item => <DisplayBanner key={item.id} item={item} > </DisplayBanner>)
   }
 </div>
 

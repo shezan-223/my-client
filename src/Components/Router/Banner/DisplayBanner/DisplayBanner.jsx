@@ -2,8 +2,10 @@ import React from 'react';
 import { useLoaderData } from 'react-router';
 import Banner from '../Banner';
 
-const DisplayBanner = ({banner}) => {
-    const {_id, propertyName, category, image, location, price,shortDescription} = banner;
+const DisplayBanner = ({item}) => {
+    const { propertyName, category, image, location, price,shortDescription} = item;
+    console.log(item);
+    
     
     
 

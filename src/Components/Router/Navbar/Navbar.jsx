@@ -85,9 +85,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex flex-col gap-2 md:flex-row">
-    <button className='border-2 px-3 text-xl font-semibold'>Login</button>
+    <button className='border-2 p-3 text-xl font-semibold rounded-2xl'>Login</button>
 
-    <button className='border-2 px-3 text-xl font-semibold'>Logout</button>
+    <button className='border-2 p-3 text-xl font-semibold rounded-2xl'>Logout</button>
   </div>
 </div>
 
