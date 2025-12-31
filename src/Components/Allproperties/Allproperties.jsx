@@ -10,7 +10,7 @@ const properties = useLoaderData();
 
     
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-12'>
+        <div className='grid container mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-12 '>
             {
   properties.map((property)=>(
 

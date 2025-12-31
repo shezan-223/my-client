@@ -3,10 +3,14 @@
 import { use } from 'react';
 import DisplayBanner from './DisplayBanner/DisplayBanner';
 import { useLoaderData } from 'react-router';
+import { useAuth } from '../../../Auth/AuthContext';
 
 const Banner = () => {
  const banner =useLoaderData()  
  console.log(banner);
+ const {user}=useAuth()
+ 
+ 
  
   
   // const{  propertyName, category, image, location, price,shortDescription } =banner
@@ -17,6 +21,7 @@ const Banner = () => {
     return (
 <div className='container mx-auto'>
   <h2>total data {banner.length}</h2>
+  <h2>{user?.email}</h2>
  
  
             <div className="carousel w-full">

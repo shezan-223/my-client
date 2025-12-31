@@ -5,7 +5,7 @@ const Cards = ({ property }) => {
   const { _id, propertyName, category, image, location, price,shortDescription } =
     property;
 
-  return  ( <div className="border rounded-xl shadow-md overflow-hidden hover:shadow-lg ">
+  return  ( <div className="border rounded-xl shadow-md overflow-hidden hover:shadow-lg container mx-auto">
             
       {/* Cover Photo */}
       <img
@@ -19,7 +19,7 @@ const Cards = ({ property }) => {
         <h3 className="text-lg font-semibold mb-2">{propertyName}</h3>
         <p className="text-sm text-gray-600">Category: {category}</p>
         <p className="text-sm text-gray-600">Location: {location}</p>
-        <p className="text-sm text-yellow-600 font-medium mt-2">
+        <p className="text-xl text-yellow-600 font-medium mt-2  ">
           ⭐ Price: {price}
         </p>
       </div>

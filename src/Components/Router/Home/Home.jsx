@@ -8,14 +8,16 @@ import { Outlet } from 'react-router';
 const Home = () => {
       
     return (
-        <div>
-            <nav className='container mx-auto'>
+        <div className=''>
+            <div className=''>
+
         <Navbar></Navbar>
-            </nav>
+            </div>
+            
             <header>
            
             </header>
-            <main className='container mx-auto'>
+            <main className=''>
                 <Outlet></Outlet>
 
             </main>

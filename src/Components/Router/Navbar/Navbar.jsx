@@ -1,99 +1,151 @@
 
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import { useAuth } from '../../../Auth/AuthContext';
 
 
 
 const Navbar = () => {
+
+  const { user,logout } = useAuth()
+
+
+const handleLogout =()=>{
+  logout()
   
+  .then(result =>{
+    console.log(result.user);
 
-    const links = [
-  <NavLink
-    to="/"
-    className={({ isActive }) =>
-      isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
-    }
-  >
-    Home
-  </NavLink>,
+    })
+    .catch(error=>{
+      console.log(error);
+      
+    })
+}
 
-  <NavLink
-    to="/aboutUs"
-    className={({ isActive }) =>
-      isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
-    }
-  >
-    About US
-  </NavLink>,
 
-  <NavLink
-    to="/allProperties"
-    className={({ isActive }) =>
-      isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
-    }
-  >
-    All Properties
-  </NavLink>,
 
-  <NavLink
-    to="/addProperties"
-    className={({ isActive }) =>
-      isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
-    }
-  >
-    Add Properties
-  </NavLink>,
+  const links = [
+    <NavLink
+      to="/"
+      className={({ isActive }) =>
+        isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
+      }
+    >
+      Home
+    </NavLink>,
 
-  <NavLink
-    to="/myProperties"
-    className={({ isActive }) =>
-      isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
-    }
-  >
-    My Properties
-  </NavLink>,
+    <NavLink
+      to="/aboutUs"
+      className={({ isActive }) =>
+        isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
+      }
+    >
+      About US
+    </NavLink>,
 
-  <NavLink
-    to="/myRatings"
-    className={({ isActive }) =>
-      isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
-    }
-  >
-    My Ratings
-  </NavLink>
-];
-    return (
-        <div className='bg-[#23282d] text-white '>
-    <div className="navbar  shadow-sm ">
+    <NavLink
+      to="/allProperties"
+      className={({ isActive }) =>
+        isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
+      }
+    >
+      All Properties
+    </NavLink>,
+
+    <NavLink
+      to="/addProperties"
+      className={({ isActive }) =>
+        isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
+      }
+    >
+      Add Properties
+    </NavLink>,
+
+    <NavLink
+      to="/myProperties"
+      className={({ isActive }) =>
+        isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
+      }
+    >
+      My Properties
+    </NavLink>,
+
+    <NavLink
+      to="/myRatings"
+      className={({ isActive }) =>
+        isActive ? "bg-red-500 text-white px-2 rounded" : "hover:bg-blue-400 px-2"
+      }
+    >
+      My Ratings
+    </NavLink>,
+
+
+  ];
+  return (
+    <div className='bg-[#23282d] text-white  '>
+      <div className="navbar  shadow-sm ">
         {/* <div >{user && user.email} </div> */}
-  <div className="navbar-start  ">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-      </div>
-      <ul
-        tabIndex="-1"
-        className="menu hover:bg-blue-400 menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li className='bg-[#23282d]  ' >{links}</li>
-      </ul>
-    </div>
-    <a className=" btn-ghost text-2xl font-bold  color bg-clip-text ">HomeNest</a>
-  </div>
-  <div className="navbar-center hidden lg:flex  ">
-    <ul className="menu menu-horizontal px-1 flex ">
-      <li className='flex-row '>{links}</li>
-    </ul>
-  </div>
-  <div className="navbar-end flex flex-col gap-2 md:flex-row">
-    <button className='border-2 p-3 text-xl font-semibold rounded-2xl'>Login</button>
-
-    <button className='border-2 p-3 text-xl font-semibold rounded-2xl'>Logout</button>
-  </div>
-</div>
-
-
+        <div className="navbar-start  ">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+            </div>
+            <ul
+              tabIndex="-1"
+              className="menu hover:bg-blue-400 menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              <li className='bg-[#23282d]  ' >{links}</li>
+            </ul>
+          </div>
+          <a className=" btn-ghost text-2xl font-bold  color bg-clip-text ">HomeNest</a>
         </div>
-    );
+        <div className="navbar-center hidden lg:flex  ">
+          <ul className="menu menu-horizontal px-1 flex ">
+            <li className='flex-row '>{links}</li>
+          </ul>
+        </div>
+        <div className="navbar-end flex flex-col gap-2 md:flex-row">
+
+
+          {user ? (
+            <div className="flex items-center gap-3">
+             
+              <button
+               
+              onClick={handleLogout}
+                className="btn btn-error border-2 p-3 text-xl font-semibold rounded-2xl"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="btn  border-2 p-3 text-xl font-semibold rounded-2xl ">
+              Login
+            </Link>
+          )}
+        {!user ?(
+          <Link to="/register">
+
+            <button className='btn border-2 p-3 text-xl font-semibold rounded-2xl'>Register</button>
+          </Link>
+
+        ) : (
+
+          <Link>
+          </Link>
+        )
+
+        }
+
+
+          
+        </div>
+      </div>
+
+
+    </div>
+  );
+
 };
 
 export default Navbar;
